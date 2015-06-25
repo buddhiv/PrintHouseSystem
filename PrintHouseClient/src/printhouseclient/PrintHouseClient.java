@@ -6,6 +6,12 @@
 
 package printhouseclient;
 
+import com.jtattoo.plaf.aero.AeroLookAndFeel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 /**
  *
  * @author Buddhi
@@ -16,7 +22,16 @@ public class PrintHouseClient {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        
+        try {
+            UIManager.setLookAndFeel(new AeroLookAndFeel());
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PrintHouseClient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        new MainView().setVisible(true);
+            
     }
     
 }
