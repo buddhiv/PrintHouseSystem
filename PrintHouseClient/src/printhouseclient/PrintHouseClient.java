@@ -6,6 +6,7 @@
 
 package printhouseclient;
 
+import printhouseclient.view.MainView;
 import com.jtattoo.plaf.aero.AeroLookAndFeel;
 import java.util.logging.Level;
 import java.util.logging.Logger;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package printhouseclient;
+package printhouseclient.view;
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -159,7 +159,7 @@ public class MainView extends javax.swing.JFrame {
 
         jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
-        jButton1.setText("Stock");
+        jButton1.setText("Supplier Order");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -259,20 +259,21 @@ public class MainView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Stock stock = new Stock();
-        jDesktopPane2.add(stock);
-        BasicInternalFrameUI ui = (BasicInternalFrameUI) stock.getUI();
+        SupplierOrder supplierOrder = new SupplierOrder();
+        jDesktopPane2.add(supplierOrder);
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) supplierOrder.getUI();
         Component north = ui.getNorthPane();
         north.setPreferredSize(new Dimension(0, 0));
         north.validate();
 
         try {
-            stock.setMaximum(true);
+            supplierOrder.setMaximum(true);
         } catch (PropertyVetoException ex) {
             Logger.getLogger(MainView.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        stock.setVisible(true);
+        supplierOrder.setVisible(true);
+
 
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed

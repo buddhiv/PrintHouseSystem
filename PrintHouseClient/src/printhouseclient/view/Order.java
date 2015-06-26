@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package printhouseclient;
+package printhouseclient.view;
 
 /**
  *
  * @author neo
  */
-public class Report extends javax.swing.JInternalFrame {
+public class Order extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Report
+     * Creates new form Order
      */
-    public Report() {
+    public Order() {
         super("Stock", false, false, false, true);
         initComponents();
-
+        
     }
 
     /**
@@ -33,19 +33,19 @@ public class Report extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Report");
+        jLabel1.setText("Order");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 368, Short.MAX_VALUE))
+                .addGap(0, 433, Short.MAX_VALUE))
         );
 
         pack();

@@ -3,18 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package printhouseclient;
+package printhouseclient.view;
+
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.Toolkit;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author neo
  */
-public class Order extends javax.swing.JInternalFrame {
+public class Stock extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Order
+     * Creates new form Stock
      */
-    public Order() {
+    public Stock() {
         super("Stock", false, false, false, true);
         initComponents();
         
@@ -33,19 +39,19 @@ public class Order extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Order");
+        jLabel1.setText("Stock Management System here");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 433, Short.MAX_VALUE))
+                .addGap(0, 428, Short.MAX_VALUE))
         );
 
         pack();
