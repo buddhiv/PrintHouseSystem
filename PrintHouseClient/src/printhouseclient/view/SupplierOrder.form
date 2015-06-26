@@ -262,17 +262,17 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jLabel5" max="32767" attributes="0"/>
+                                  <Component id="avaQtyLabel" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel7" min="-2" pref="137" max="-2" attributes="0"/>
+                                  <Component id="oldPriceLabel" min="-2" pref="137" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextField1" pref="288" max="32767" attributes="0"/>
-                              <Component id="jTextField4" max="32767" attributes="0"/>
+                              <Component id="avaQuantityText" pref="288" max="32767" attributes="0"/>
+                              <Component id="oldPriceText" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
@@ -282,13 +282,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel5" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="avaQtyLabel" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="avaQuantityText" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="oldPriceText" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="oldPriceLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="72" max="32767" attributes="0"/>
                       </Group>
@@ -296,19 +296,19 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel5">
+                <Component class="javax.swing.JLabel" name="avaQtyLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Available Quantity"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="avaQuantityText">
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel7">
+                <Component class="javax.swing.JLabel" name="oldPriceLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Old Price"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField4">
+                <Component class="javax.swing.JTextField" name="oldPriceText">
                 </Component>
               </SubComponents>
             </Container>
@@ -328,26 +328,26 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jLabel4" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="itemLabel" min="-2" pref="109" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jComboBox2" pref="237" max="32767" attributes="0"/>
+                                  <Component id="itemCombo" pref="237" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jLabel8" max="32767" attributes="0"/>
-                                      <Component id="jLabel6" pref="117" max="32767" attributes="0"/>
+                                      <Component id="priceLabel" max="32767" attributes="0"/>
+                                      <Component id="quantityLabel" pref="117" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField3" max="32767" attributes="0"/>
-                                      <Component id="jTextField5" max="32767" attributes="0"/>
+                                      <Component id="quantityText" max="32767" attributes="0"/>
+                                      <Component id="priceText" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton7" pref="104" max="32767" attributes="0"/>
-                              <Component id="jButton2" max="32767" attributes="0"/>
+                              <Component id="addItemButton" pref="104" max="32767" attributes="0"/>
+                              <Component id="newItemButton" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -357,33 +357,33 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel4" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                              <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="itemLabel" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="itemCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="newItemButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel6" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="quantityLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="quantityText" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="priceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="priceText" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="14" max="32767" attributes="0"/>
-                          <Component id="jButton7" min="-2" max="-2" attributes="0"/>
+                          <Component id="addItemButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel4">
+                <Component class="javax.swing.JLabel" name="itemLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Item"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox2">
+                <Component class="javax.swing.JComboBox" name="itemCombo">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -394,30 +394,30 @@
                       </StringArray>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemComboActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton2">
+                <Component class="javax.swing.JButton" name="newItemButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="New"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel6">
+                <Component class="javax.swing.JLabel" name="quantityLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Quantity"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField3">
+                <Component class="javax.swing.JTextField" name="quantityText">
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel8">
+                <Component class="javax.swing.JLabel" name="priceLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Price"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField5">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField5"/>
-                  </Properties>
+                <Component class="javax.swing.JTextField" name="priceText">
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton7">
+                <Component class="javax.swing.JButton" name="addItemButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Add Item"/>
                   </Properties>

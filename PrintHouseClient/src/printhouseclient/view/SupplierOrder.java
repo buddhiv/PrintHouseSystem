@@ -7,10 +7,15 @@ package printhouseclient.view;
 
 import DB.DBConnection;
 import DB.DBHandle;
+import Model.Item;
 import Model.Supplier;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,6 +32,8 @@ public class SupplierOrder extends javax.swing.JInternalFrame {
         initComponents();
 
         initSuppliers();
+        initDate();
+        initItems();
 
     }
 
@@ -51,19 +58,19 @@ public class SupplierOrder extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        avaQtyLabel = new javax.swing.JLabel();
+        avaQuantityText = new javax.swing.JTextField();
+        oldPriceLabel = new javax.swing.JLabel();
+        oldPriceText = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
-        jButton2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
+        itemLabel = new javax.swing.JLabel();
+        itemCombo = new javax.swing.JComboBox();
+        newItemButton = new javax.swing.JButton();
+        quantityLabel = new javax.swing.JLabel();
+        quantityText = new javax.swing.JTextField();
+        priceLabel = new javax.swing.JLabel();
+        priceText = new javax.swing.JTextField();
+        addItemButton = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -134,9 +141,9 @@ public class SupplierOrder extends javax.swing.JInternalFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Item Detail"));
 
-        jLabel5.setText("Available Quantity");
+        avaQtyLabel.setText("Available Quantity");
 
-        jLabel7.setText("Old Price");
+        oldPriceLabel.setText("Old Price");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -146,44 +153,47 @@ public class SupplierOrder extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(avaQtyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(oldPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
-                    .addComponent(jTextField4))
+                    .addComponent(avaQuantityText, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                    .addComponent(oldPriceText))
                 .addGap(35, 35, 35))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(avaQtyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(avaQuantityText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(oldPriceText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(oldPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 72, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("New Stock"));
 
-        jLabel4.setText("Item");
+        itemLabel.setText("Item");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        itemCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        itemCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemComboActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("New");
+        newItemButton.setText("New");
 
-        jLabel6.setText("Quantity");
+        quantityLabel.setText("Quantity");
 
-        jLabel8.setText("Price");
+        priceLabel.setText("Price");
 
-        jTextField5.setText("jTextField5");
-
-        jButton7.setText("Add Item");
+        addItemButton.setText("Add Item");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -193,40 +203,40 @@ public class SupplierOrder extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(itemLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, 0, 237, Short.MAX_VALUE))
+                        .addComponent(itemCombo, 0, 237, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
+                            .addComponent(priceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(quantityLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
                         .addGap(10, 10, 10)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField5))))
+                            .addComponent(quantityText)
+                            .addComponent(priceText))))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(addItemButton, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                    .addComponent(newItemButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(itemLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(itemCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newItemButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(quantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quantityText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(priceLabel)
+                    .addComponent(priceText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(jButton7))
+                .addComponent(addItemButton))
         );
 
         jButton5.setText("Edit");
@@ -323,22 +333,28 @@ public class SupplierOrder extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void itemComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemComboActionPerformed
+        if (itemCombo.getSelectedIndex() != -1) {
+           avaQuantityText.setText(Integer.toString(((Item) itemCombo.getSelectedItem()).getQuantity()));
+           oldPriceText.setText(Double.toString(((Item) itemCombo.getSelectedItem()).getPrice()));
+        }
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_itemComboActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addItemButton;
+    private javax.swing.JLabel avaQtyLabel;
+    private javax.swing.JTextField avaQuantityText;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JTextField dateText;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox itemCombo;
+    private javax.swing.JLabel itemLabel;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -346,11 +362,14 @@ public class SupplierOrder extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JButton newItemButton;
     private javax.swing.JButton newSupplierButton;
+    private javax.swing.JLabel oldPriceLabel;
+    private javax.swing.JTextField oldPriceText;
+    private javax.swing.JLabel priceLabel;
+    private javax.swing.JTextField priceText;
+    private javax.swing.JLabel quantityLabel;
+    private javax.swing.JTextField quantityText;
     private javax.swing.JComboBox supplierCombo;
     private javax.swing.JLabel supplierLabel;
     private javax.swing.JLabel titleLabel;
@@ -367,7 +386,7 @@ public class SupplierOrder extends javax.swing.JInternalFrame {
                 String address = result.getString("address");
                 String telephone = result.getString("telephone");
                 String email = result.getString("email");
-                
+
                 Supplier supplier = new Supplier(id, name, address, telephone, email);
                 supplierList.add(supplier);
             }
@@ -378,13 +397,49 @@ public class SupplierOrder extends javax.swing.JInternalFrame {
                     supplierCombo.addItem(supplier);
                 }
             }
-            
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(SupplierOrder.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SupplierOrder.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    private void initDate() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal = Calendar.getInstance();
+        dateText.setText(dateFormat.format(cal.getTime()));
+
+    }
+
+    private void initItems() {
+        try {
+            String sql = "SELECT * FROM item Order by description";
+            ResultSet result = DBHandle.getData(DBConnection.getDBConnection().getConnection(), sql);
+            ArrayList<Item> itemList = new ArrayList<Item>();
+            while (result.next()) {
+                int id = result.getInt("itemId");
+                String description = result.getString("description");
+                String brand = result.getString("brand");
+                int quantity = result.getInt("quantity");
+                double price = result.getDouble("price");
+
+                Item item = new Item(id, description, brand, quantity, 0, price);
+                itemList.add(item);
+            }
+            itemCombo.removeAllItems();
+            itemCombo.addItem(null);
+            if (itemList != null) {
+                for (Item item : itemList) {
+                    itemCombo.addItem(item);
+                }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SupplierOrder.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SupplierOrder.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
