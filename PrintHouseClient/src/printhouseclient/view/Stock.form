@@ -38,7 +38,7 @@
           <Font name="Ubuntu" size="36" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Stock Management System here"/>
+        <Property name="text" type="java.lang.String" value="Salary"/>
       </Properties>
     </Component>
   </SubComponents>
